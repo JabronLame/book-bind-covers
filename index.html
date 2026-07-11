@@ -17,143 +17,170 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spline+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap"
   rel="stylesheet"
 />
 
 <style>
   :root {
-    /* --- Bookbinder's workshop palette (paper / light) --- */
-    --paper:        #EFE7D6;
-    --paper-2:      #F6F0E3;
-    --surface:      #FBF7EE;
-    --surface-hi:   #FFFDF8;
-    --ink:          #23201A;
-    --ink-soft:     #6B6152;
-    --ink-faint:    #928873;
-    --line:         rgba(35, 32, 26, 0.12);
-    --line-strong:  rgba(35, 32, 26, 0.22);
+    color-scheme: light;
 
-    /* Brand + semantic (shared by inputs, results, diagrams) */
-    --bookcloth:    #8A2C22;   /* fabric / margins — the cover cloth */
-    --bookcloth-2:  #A6432F;
-    --board:        #3C6A4B;   /* cover boards */
-    --spine:        #B0812E;   /* spine / calculated */
-    --page:         #4C463C;   /* page block (graphite) */
+    /* --- Frutiger Aero palette --- */
+    --ink:        #0F2E3D;
+    --ink-soft:   #3C6072;
+    --ink-faint:  #6E93A3;
+
+    --azure:      #0E93DC;   /* primary accent */
+    --azure-2:    #38B6F2;
+    --azure-deep: #0A6FB0;
+    --grass:      #47B85C;   /* secondary accent */
+
+    /* semantic (shared by inputs, results, diagrams) */
+    --page:   #5C7C8E;   /* page block — steel blue-grey */
+    --board:  #1F9B4E;   /* cover boards — fresh green */
+    --spine:  #0E93DC;   /* spine / calculated — azure */
+    --fabric: #FB6A45;   /* cover cloth — coral */
 
     --c-page:   var(--page);
     --c-board:  var(--board);
     --c-spine:  var(--spine);
-    --c-fabric: var(--bookcloth);
+    --c-fabric: var(--fabric);
 
-    --diagram-bg: #F7F1E4;
-    --grid:       rgba(35, 32, 26, 0.06);
-    --grid-major: rgba(35, 32, 26, 0.10);
+    --glass:      rgba(255, 255, 255, 0.52);
+    --glass-2:    rgba(255, 255, 255, 0.64);
+    --glass-line: rgba(255, 255, 255, 0.75);
+    --glass-edge: rgba(14, 90, 140, 0.14);
 
-    --shadow-card:
-      0 1px 0 rgba(255,253,248,0.6) inset,
-      0 1px 2px rgba(84,48,20,0.06),
-      0 8px 20px -8px rgba(84,48,20,0.18);
+    --field-bg:   rgba(255, 255, 255, 0.72);
+    --grid:       rgba(24, 122, 170, 0.10);
+    --grid-major: rgba(24, 122, 170, 0.17);
+    --diagram-bg: rgba(244, 251, 255, 0.62);
+
+    --shadow-glass:
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      inset 0 -14px 22px -18px rgba(10,90,140,0.30),
+      0 2px 6px rgba(12,74,110,0.10),
+      0 16px 34px -14px rgba(12,74,110,0.34);
     --shadow-float:
-      0 1px 0 rgba(255,253,248,0.7) inset,
-      0 2px 6px rgba(84,48,20,0.08),
-      0 22px 44px -18px rgba(84,48,20,0.34);
+      inset 0 1px 0 rgba(255,255,255,0.95),
+      inset 0 -18px 30px -22px rgba(10,90,140,0.30),
+      0 3px 8px rgba(12,74,110,0.12),
+      0 30px 60px -22px rgba(12,74,110,0.42);
+    --shadow-btn:
+      inset 0 1px 0 rgba(255,255,255,0.7),
+      0 6px 14px -4px rgba(12,120,180,0.55);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:        #1A1712;
-      --paper-2:      #211D17;
-      --surface:      #24201A;
-      --surface-hi:   #2C271F;
-      --ink:          #EDE6D6;
-      --ink-soft:     #A99E89;
-      --ink-faint:    #7C7360;
-      --line:         rgba(237, 230, 214, 0.12);
-      --line-strong:  rgba(237, 230, 214, 0.22);
-      --bookcloth:    #C9553F;
-      --bookcloth-2:  #D9694E;
-      --board:        #6CA97E;
-      --spine:        #D6A94E;
-      --page:         #B9AF9B;
-      --diagram-bg:   #201C16;
-      --grid:         rgba(237, 230, 214, 0.06);
-      --grid-major:   rgba(237, 230, 214, 0.10);
-      --shadow-card:
-        0 1px 0 rgba(255,255,255,0.04) inset,
-        0 8px 20px -10px rgba(0,0,0,0.6);
+      color-scheme: dark;
+      --ink:        #E4F4FB;
+      --ink-soft:   #A9CEDD;
+      --ink-faint:  #74A0B2;
+      --azure:      #38B6F2;
+      --azure-2:    #63CBFF;
+      --azure-deep: #1E93D6;
+      --grass:      #5CD277;
+      --page:       #9DBCCC;
+      --board:      #4FD07A;
+      --spine:      #45BDF5;
+      --fabric:     #FF8467;
+      --glass:      rgba(14, 40, 56, 0.46);
+      --glass-2:    rgba(18, 48, 66, 0.58);
+      --glass-line: rgba(120, 190, 225, 0.28);
+      --glass-edge: rgba(0, 0, 0, 0.30);
+      --field-bg:   rgba(10, 32, 46, 0.55);
+      --grid:       rgba(120, 190, 225, 0.12);
+      --grid-major: rgba(120, 190, 225, 0.20);
+      --diagram-bg: rgba(10, 34, 48, 0.5);
+      --shadow-glass:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        0 18px 36px -16px rgba(0,0,0,0.6);
       --shadow-float:
-        0 1px 0 rgba(255,255,255,0.05) inset,
-        0 24px 48px -20px rgba(0,0,0,0.7);
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        0 32px 60px -22px rgba(0,0,0,0.7);
+      --shadow-btn:
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 6px 16px -4px rgba(0,0,0,0.55);
     }
   }
 
   * { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-  html, body { background: var(--paper); }
+  html, body { min-height: 100%; }
 
   body {
     margin: 0;
     color: var(--ink);
-    font-family: 'Spline Sans', ui-sans-serif, system-ui, sans-serif;
-    line-height: 1.7;
-    background-color: var(--paper);
-    background-image:
-      radial-gradient(1200px 700px at 12% -8%, rgba(176,129,46,0.10), transparent 60%),
-      radial-gradient(1000px 640px at 108% 6%, rgba(138,44,34,0.10), transparent 55%),
-      radial-gradient(900px 900px at 88% 118%, rgba(60,106,75,0.08), transparent 60%);
-    background-attachment: fixed;
+    font-family: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.65;
     min-height: 100vh;
+    background-repeat: no-repeat;
+    /* bright aero sky → water → grass, with soft floating bokeh */
+    background-image:
+      radial-gradient(closest-side at 16% 20%, rgba(255,255,255,0.55), transparent),
+      radial-gradient(closest-side at 84% 14%, rgba(190,242,255,0.55), transparent),
+      radial-gradient(closest-side at 72% 82%, rgba(196,255,214,0.55), transparent),
+      radial-gradient(closest-side at 30% 92%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1400px 900px at 50% -14%, rgba(255,255,255,0.7), transparent 62%),
+      linear-gradient(180deg, #BFE9FF 0%, #A4DBF6 32%, #B9EBDA 68%, #A2E6BD 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-image:
+        radial-gradient(closest-side at 18% 18%, rgba(60,180,240,0.22), transparent),
+        radial-gradient(closest-side at 82% 24%, rgba(80,210,150,0.18), transparent),
+        radial-gradient(1400px 900px at 50% -10%, rgba(40,120,170,0.35), transparent 60%),
+        linear-gradient(180deg, #06202E 0%, #0A2A3A 45%, #0C2E33 100%);
+    }
   }
 
-  /* Grain overlay for depth */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.045;
-    mix-blend-mode: soft-light;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .font-display { font-family: 'Fraunces', Georgia, serif; }
-  .font-mono    { font-family: 'Spline Sans Mono', ui-monospace, monospace; }
+  .font-display { font-family: 'Titillium Web', 'Nunito Sans', sans-serif; }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
 
   .eyebrow {
-    font-family: 'Spline Sans Mono', monospace;
-    letter-spacing: 0.34em;
+    font-family: 'Titillium Web', sans-serif;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     font-size: 11px;
-    font-weight: 500;
-    color: var(--ink-faint);
+    font-weight: 700;
+    color: var(--azure-deep);
   }
+  @media (prefers-color-scheme: dark) { .eyebrow { color: var(--azure-2); } }
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    box-shadow: var(--shadow-card);
+  /* --- Aero glass surfaces --- */
+  .glass, .glass-float {
+    position: relative;
+    background: var(--glass);
+    border: 1px solid var(--glass-line);
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border-radius: 22px;
   }
-  .card-float {
-    background: var(--surface-hi);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    box-shadow: var(--shadow-float);
+  .glass-float { background: var(--glass-2); box-shadow: var(--shadow-float); border-radius: 26px; }
+  /* glossy top sheen */
+  .glass-float::before {
+    content: "";
+    position: absolute; inset: 1px 1px auto 1px; height: 44%;
+    border-radius: 25px 25px 60% 60% / 25px 25px 22px 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0) 90%);
+    pointer-events: none;
   }
+  @media (prefers-color-scheme: dark) { .glass-float::before { opacity: 0.25; } }
 
   .card-title {
-    font-family: 'Spline Sans Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-soft);
-    font-weight: 600;
+    font-weight: 700;
   }
 
-  /* Cutting-mat / graph-paper surface for diagrams */
+  /* Diagram surface — frosted glass with faint blueprint grid */
   .cutmat {
+    position: relative;
     background-color: var(--diagram-bg);
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -161,107 +188,85 @@
       linear-gradient(var(--grid-major) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-major) 1px, transparent 1px);
     background-size: 13px 13px, 13px 13px, 65px 65px, 65px 65px;
-    border-radius: 14px;
-    border: 1px solid var(--line);
-    box-shadow: inset 0 2px 10px rgba(35,32,26,0.06);
+    border-radius: 16px;
+    border: 1px solid var(--glass-line);
+    box-shadow: inset 0 2px 14px rgba(12,74,110,0.10), inset 0 1px 0 rgba(255,255,255,0.7);
   }
+
+  .swatch { width: 12px; height: 12px; border-radius: 4px; flex: none;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.65) inset, 0 1px 2px rgba(12,74,110,0.25); }
 
   /* Inputs */
-  .swatch { width: 11px; height: 11px; border-radius: 3px; flex: none; box-shadow: 0 0 0 1px rgba(0,0,0,0.08) inset; }
-
   .field {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: var(--paper-2);
-    border: 1px solid var(--line);
-    border-radius: 11px;
-    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+    position: relative; display: flex; align-items: center;
+    background: var(--field-bg);
+    border: 1px solid var(--glass-line);
+    border-radius: 12px;
+    box-shadow: inset 0 1px 3px rgba(12,74,110,0.10), inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: border-color .16s ease, box-shadow .16s ease;
   }
-  .field:hover { border-color: var(--line-strong); }
+  .field:hover { border-color: rgba(14,147,220,0.5); }
   .field:focus-within {
-    border-color: var(--bookcloth);
-    background: var(--surface-hi);
-    box-shadow: 0 0 0 3px rgba(138,44,34,0.14);
+    border-color: var(--azure);
+    box-shadow: 0 0 0 3px rgba(14,147,220,0.22), inset 0 1px 2px rgba(12,74,110,0.08);
   }
   .field input {
-    width: 100%;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    padding: 9px 11px;
-    font-family: 'Spline Sans Mono', monospace;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--ink);
-    -moz-appearance: textfield;
+    width: 100%; background: transparent; border: 0; outline: 0;
+    padding: 9px 11px; font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px; font-weight: 700; color: var(--ink);
+    font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield;
   }
   .field input::-webkit-outer-spin-button,
   .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  .field .unit {
-    padding-right: 11px;
-    font-family: 'Spline Sans Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-faint);
-    user-select: none;
-  }
+  .field .unit { padding-right: 11px; font-size: 12px; font-weight: 600; color: var(--ink-faint); user-select: none; }
 
-  /* Unit toggle */
+  /* Unit toggle — glossy aqua pill */
   .seg {
-    display: inline-flex;
-    padding: 3px;
-    gap: 2px;
-    background: var(--paper-2);
-    border: 1px solid var(--line);
-    border-radius: 12px;
+    display: inline-flex; padding: 4px; gap: 3px;
+    background: var(--field-bg);
+    border: 1px solid var(--glass-line);
+    border-radius: 14px;
+    box-shadow: inset 0 1px 3px rgba(12,74,110,0.12);
   }
   .seg button {
-    font-family: 'Spline Sans Mono', monospace;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 6px 15px;
-    border-radius: 9px;
-    color: var(--ink-soft);
-    transition: color .18s ease, background .18s ease, box-shadow .18s ease, transform .12s ease;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.02em;
+    padding: 7px 17px; border-radius: 10px; color: var(--ink-soft);
+    transition: color .16s ease, box-shadow .16s ease, transform .1s ease, background .16s ease;
     cursor: pointer;
   }
-  .seg button:hover { color: var(--ink); }
+  .seg button:hover { color: var(--azure-deep); }
   .seg button:active { transform: translateY(1px); }
   .seg button.on {
-    background: var(--bookcloth);
-    color: #FBF3EA;
-    box-shadow: 0 2px 8px -2px rgba(138,44,34,0.55), 0 1px 0 rgba(255,255,255,0.18) inset;
+    color: #fff;
+    background: linear-gradient(180deg, var(--azure-2), var(--azure) 55%, var(--azure-deep));
+    box-shadow: var(--shadow-btn);
   }
-  .seg button:focus-visible,
-  .field:focus-within { outline: none; }
-  button:focus-visible { outline: 2px solid var(--bookcloth); outline-offset: 2px; }
+  button:focus-visible { outline: 2px solid var(--azure); outline-offset: 2px; }
 
   /* Result rows */
-  .res-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+  .res-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid rgba(14,90,140,0.12); }
   .res-row:last-child { border-bottom: 0; }
-  .res-key { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--ink-soft); }
-  .res-val { font-family: 'Spline Sans Mono', monospace; font-weight: 600; color: var(--ink); font-size: 15px; white-space: nowrap; }
-  .res-total .res-val { color: var(--bookcloth); font-size: 17px; }
+  .res-key { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+  .res-val { font-weight: 800; color: var(--ink); font-size: 15px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .res-total .res-val { color: var(--fabric); font-size: 17px; }
 
-  .formula { font-family: 'Spline Sans Mono', monospace; font-size: 12px; color: var(--ink-soft); line-height: 1.9; }
-  .formula b { color: var(--ink); font-weight: 600; }
+  .formula { font-size: 12.5px; color: var(--ink-soft); line-height: 1.95; font-variant-numeric: tabular-nums; }
+  .formula b { color: var(--ink); font-weight: 800; }
 
   /* SVG shared */
   .dl { stroke: currentColor; stroke-width: 1.4; vector-effect: non-scaling-stroke; fill: none; }
-  .dlabel { font-family: 'Spline Sans Mono', monospace; font-weight: 600; fill: currentColor; text-anchor: middle; }
+  .dlabel { font-family: 'Nunito Sans', sans-serif; font-weight: 800; fill: currentColor;
+    text-anchor: middle; font-variant-numeric: tabular-nums; }
   .dim-page   { color: var(--c-page); }
   .dim-board  { color: var(--c-board); }
   .dim-spine  { color: var(--c-spine); }
   .dim-fabric { color: var(--c-fabric); }
 
-  /* Page-load reveal */
-  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
   .rise { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rise { animation: none; opacity: 1; transform: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { .rise { animation: none; opacity: 1; transform: none; } }
 </style>
 
 <div id="root"></div>
@@ -275,11 +280,17 @@ const DEFAULTS_MM = {
   pageHeight: 230,
   blockThickness: 20,
   boardThickness: 2.5,
-  coverMargin: 3,
-  fabricMargin: 20,
+  coverMaterial: 1,
+  overhang: 3,
+  turnIn: 20,
 };
 
 const round = (n, d) => Math.round(n * 10 ** d) / 10 ** d;
+
+function fmt(mm, unit) {
+  if (!Number.isFinite(mm)) return '—';
+  return unit === 'mm' ? round(mm, 1).toFixed(1) : round(mm / MM_PER_IN, 2).toFixed(2);
+}
 
 // ---------- Inputs ----------
 function InputField({ id, label, value, unit, colorVar, onChange }) {
@@ -287,7 +298,7 @@ function InputField({ id, label, value, unit, colorVar, onChange }) {
   return (
     <label htmlFor={id} className="flex items-center gap-3">
       <span className="swatch" style={{ background: `var(${colorVar})` }} />
-      <span className="flex-1 text-[13.5px]" style={{ color: 'var(--ink-soft)' }}>{label}</span>
+      <span className="flex-1 text-[13.5px] font-semibold" style={{ color: 'var(--ink-soft)' }}>{label}</span>
       <span className="field w-[118px]">
         <input
           id={id} name={id} type="number" inputMode="decimal" step={step} min="0"
@@ -301,8 +312,10 @@ function InputField({ id, label, value, unit, colorVar, onChange }) {
 }
 
 // ---------- Dimension helper ----------
-function Dim({ x1, y1, x2, y2, label, lx, ly, rotate, cls, fs, dyLabel, plain, marker = 'ar' }) {
-  const m = plain ? undefined : `url(#${marker})`;
+function Dim({ x1, y1, x2, y2, label, lx, ly, rotate, cls, fs, dyLabel, plain }) {
+  // Drop arrowheads on very short spans so they don't collide into an "X".
+  const len = Math.hypot(x2 - x1, y2 - y1);
+  const m = plain || (fs && len < fs * 1.6) ? undefined : 'url(#ar)';
   return (
     <g className={cls}>
       <line className="dl" x1={x1} y1={y1} x2={x2} y2={y2} markerStart={m} markerEnd={m} />
@@ -327,9 +340,9 @@ function FlatLayoutSVG({ d }) {
   const leftBoardX = d.fabricMargin;
   const spineX = d.fabricMargin + d.boardW + d.gutter;
   const rightBoardX = spineX + d.spineW + d.gutter;
-  const pageLeftX = d.fabricMargin + d.coverMargin;
-  const pageTopY = d.fabricMargin + d.coverMargin;
-  const pageDrawW = Math.max(0, d.pageW - d.blockT / 2);
+  const pageLeftX = d.fabricMargin + d.overhang;          // left page fore-edge (spine edge lands at spineX)
+  const pageRightX = spineX + d.spineW;                   // right page spine edge
+  const pageTopY = d.fabricMargin + d.overhang;
 
   const padX = d.fabricW * 0.14, padTop = d.fabricH * 0.12, padBot = d.fabricH * 0.2;
   const vb = `${-padX} ${-padTop} ${d.fabricW + padX * 2} ${d.fabricH + padTop + padBot}`;
@@ -341,14 +354,14 @@ function FlatLayoutSVG({ d }) {
           <path d="M0 1 L9 5 L0 9" fill="none" stroke="context-stroke" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </marker>
         <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="0" x2="0" y2="7" stroke="var(--c-spine)" strokeWidth="1.1" opacity="0.5" />
+          <line x1="0" y1="0" x2="0" y2="7" stroke="var(--c-spine)" strokeWidth="1.1" opacity="0.45" />
         </pattern>
       </defs>
 
       {/* Fabric outline with 45° corner cuts */}
       <path
         d={`M ${cut} 0 L ${d.fabricW - cut} 0 L ${d.fabricW} ${cut} L ${d.fabricW} ${d.fabricH - cut} L ${d.fabricW - cut} ${d.fabricH} L ${cut} ${d.fabricH} L 0 ${d.fabricH - cut} L 0 ${cut} Z`}
-        fill="var(--c-fabric)" fillOpacity="0.10"
+        fill="var(--c-fabric)" fillOpacity="0.08"
         stroke="var(--c-fabric)" strokeWidth="1.8" vectorEffect="non-scaling-stroke"
         strokeDasharray="7 4"
       />
@@ -365,10 +378,10 @@ function FlatLayoutSVG({ d }) {
           stroke="var(--c-board)" strokeWidth="2" vectorEffect="non-scaling-stroke" rx="2.5" />
       ))}
 
-      {/* Page blocks */}
-      {[pageLeftX, rightBoardX].map((x, i) => (
-        <rect key={i} x={x} y={pageTopY} width={pageDrawW} height={d.pageH}
-          fill="var(--c-page)" fillOpacity="0.14"
+      {/* Page blocks (extend from fore-edge to the spine strip) */}
+      {[pageLeftX, pageRightX].map((x, i) => (
+        <rect key={i} x={x} y={pageTopY} width={d.pageW} height={d.pageH}
+          fill="var(--c-page)" fillOpacity="0.13"
           stroke="var(--c-page)" strokeWidth="1.2" vectorEffect="non-scaling-stroke"
           strokeDasharray="3 3" rx="1" />
       ))}
@@ -377,11 +390,10 @@ function FlatLayoutSVG({ d }) {
       {/* Page height + width (on right block) */}
       <Dim cls="dim-page" fs={fs}
         x1={pageLeftX + d.pageW / 2} y1={pageTopY} x2={pageLeftX + d.pageW / 2} y2={pageTopY + d.pageH}
-        label="h" lx={pageLeftX + d.pageW / 2 + fs * 0.9} ly={pageTopY + d.pageH / 2}
-        rotate={-90} />
+        label="h" lx={pageLeftX + d.pageW / 2 + fs * 0.9} ly={pageTopY + d.pageH / 2} rotate={-90} />
       <Dim cls="dim-page" fs={fs}
-        x1={rightBoardX} y1={pageTopY + d.pageH / 2} x2={rightBoardX + pageDrawW} y2={pageTopY + d.pageH / 2}
-        label="w" lx={rightBoardX + pageDrawW / 2} ly={pageTopY + d.pageH / 2 - fs * 0.7} />
+        x1={pageRightX} y1={pageTopY + d.pageH / 2} x2={pageRightX + d.pageW} y2={pageTopY + d.pageH / 2}
+        label="w" lx={pageRightX + d.pageW / 2} ly={pageTopY + d.pageH / 2 - fs * 0.7} />
 
       {/* Cover board width (top of left board) */}
       <Dim cls="dim-board" fs={fs}
@@ -400,15 +412,15 @@ function FlatLayoutSVG({ d }) {
           label="g" lx={gx + d.gutter / 2} ly={d.fabricMargin + d.boardH + padBot * 0.2} dyLabel={fs * 1.15} />
       ))}
 
-      {/* Cover margin (square) */}
+      {/* Overhang / square */}
       <Dim cls="dim-fabric" fs={fs * 0.86} plain
         x1={leftBoardX - padX * 0.28} y1={d.fabricMargin} x2={leftBoardX - padX * 0.28} y2={pageTopY}
-        label="sq" lx={leftBoardX - padX * 0.28 - fs * 0.9} ly={d.fabricMargin + d.coverMargin / 2} />
+        label="sq" lx={leftBoardX - padX * 0.28 - fs * 0.9} ly={d.fabricMargin + d.overhang / 2} />
 
       {/* Fabric total width (bottom) */}
       <Dim cls="dim-fabric" fs={fs}
         x1={0} y1={d.fabricH + padBot * 0.62} x2={d.fabricW} y2={d.fabricH + padBot * 0.62}
-        label={`fabric  ${fmt(d.fabricW, d.unit)} × ${fmt(d.fabricH, d.unit)}`}
+        label={`cloth  ${fmt(d.fabricW, d.unit)} × ${fmt(d.fabricH, d.unit)}`}
         lx={d.fabricW / 2} ly={d.fabricH + padBot * 0.62} dyLabel={fs * 1.25} />
     </svg>
   );
@@ -417,42 +429,36 @@ function FlatLayoutSVG({ d }) {
 // ---------- Cross-section detail (live, spine region) ----------
 function CrossSectionSVG({ d }) {
   if (!(d.spineW > 0)) return null;
-  const t = d.boardT, blk = d.blockT, g = d.gutter, sq = d.coverMargin;
-  const spineStripX = 0;                 // outer face of case spine
-  const jointX = t + g;                  // spine-side edge of cover boards
+  const t = d.boardT, blk = d.blockT, g = d.gutter;
+  const spineStripX = 0;
+  const jointX = t + g;
   const shown = Math.max(60, d.pageW * 0.42);
-  const breakX = jointX + shown;         // fore-edge side is broken away
+  const breakX = jointX + shown;
   const half = blk / 2;
   const fs = Math.max(7, (breakX + 40) / 30);
-  const gap = t * 0.5 + 0.6;             // fabric offset outside boards
+  const gap = t * 0.5 + 0.6;
 
   const topBoardY = -half - t, botBoardY = half;
   const spineTop = -half - t, spineH = blk + 2 * t;
 
   const vb = `${-46} ${spineTop - 34} ${breakX + 78} ${spineH + 68}`;
   const jag = (y) => {
-    // little torn-edge zigzag at breakX
     const a = 3.2;
     let p = `M ${breakX} ${y - blk / 2}`;
     const steps = 6, dy = blk / steps;
-    for (let i = 1; i <= steps; i++) {
-      p += ` L ${breakX + (i % 2 ? a : -a)} ${y - blk / 2 + dy * i}`;
-    }
+    for (let i = 1; i <= steps; i++) p += ` L ${breakX + (i % 2 ? a : -a)} ${y - blk / 2 + dy * i}`;
     return p;
   };
 
   return (
     <svg viewBox={vb} className="w-full h-full" preserveAspectRatio="xMidYMid meet">
       <defs>
-        <marker id="ar2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M0 1 L9 5 L0 9" fill="none" stroke="context-stroke" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </marker>
         <pattern id="hatch2" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="var(--c-spine)" strokeWidth="1" opacity="0.5" />
+          <line x1="0" y1="0" x2="0" y2="6" stroke="var(--c-spine)" strokeWidth="1" opacity="0.45" />
         </pattern>
       </defs>
 
-      {/* Bookcloth wrap (fabric) — hugs the spine + turns onto outer board faces */}
+      {/* Bookcloth wrap */}
       <path
         d={`M ${breakX} ${topBoardY - gap}
             L ${jointX - 1} ${topBoardY - gap}
@@ -461,13 +467,13 @@ function CrossSectionSVG({ d }) {
             Q ${spineStripX - gap - 3} ${botBoardY + t + gap} ${jointX - 1} ${botBoardY + t + gap}
             L ${breakX} ${botBoardY + t + gap}`}
         fill="none" stroke="var(--c-fabric)" strokeWidth="3" vectorEffect="non-scaling-stroke"
-        strokeLinejoin="round" strokeLinecap="round" opacity="0.85" />
+        strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
 
-      {/* Case spine board (vertical) */}
+      {/* Case spine board */}
       <rect x={spineStripX} y={spineTop} width={t} height={spineH}
         fill="url(#hatch2)" stroke="var(--c-spine)" strokeWidth="1.8" vectorEffect="non-scaling-stroke" rx="1" />
 
-      {/* Cover boards (front/top + back/bottom), broken at fore edge */}
+      {/* Cover boards */}
       {[topBoardY, botBoardY].map((by, i) => (
         <rect key={i} x={jointX} y={by} width={breakX - jointX} height={t}
           fill="var(--c-board)" fillOpacity="0.16"
@@ -476,28 +482,20 @@ function CrossSectionSVG({ d }) {
 
       {/* Page block */}
       <rect x={jointX} y={-half} width={breakX - jointX} height={blk}
-        fill="var(--c-page)" fillOpacity="0.13"
+        fill="var(--c-page)" fillOpacity="0.12"
         stroke="var(--c-page)" strokeWidth="1.2" vectorEffect="non-scaling-stroke" strokeDasharray="3 3" />
-      {/* Torn edge overlay to read as "continues" */}
       <path d={jag(0)} fill="none" stroke="var(--c-page)" strokeWidth="1.2" vectorEffect="non-scaling-stroke" opacity="0.7" />
 
-      {/* --- Dimensions --- */}
-      {/* Spine height (s) at far left */}
+      {/* Dimensions */}
       <Dim cls="dim-spine" fs={fs}
         x1={-30} y1={spineTop} x2={-30} y2={spineTop + spineH}
-        label="s" lx={-30 - fs * 0.9} ly={0} rotate={-90} />
-
-      {/* Gutter (g) */}
+        label="s" lx={-30 - fs * 0.9} ly={0} rotate={-90} marker />
       <Dim cls="dim-spine" fs={fs}
         x1={t} y1={spineTop - 16} x2={jointX} y2={spineTop - 16}
         label="g" lx={t + g / 2} ly={spineTop - 16} dyLabel={-fs * 0.5} />
-
-      {/* Board thickness (t) on top board */}
       <Dim cls="dim-board" fs={fs * 0.92} plain
         x1={jointX + (breakX - jointX) * 0.62} y1={topBoardY} x2={jointX + (breakX - jointX) * 0.62} y2={topBoardY + t}
         label="board t" lx={jointX + (breakX - jointX) * 0.62} ly={topBoardY - fs * 0.5} />
-
-      {/* Block thickness */}
       <Dim cls="dim-page" fs={fs}
         x1={jointX + (breakX - jointX) * 0.3} y1={-half} x2={jointX + (breakX - jointX) * 0.3} y2={half}
         label="block" lx={jointX + (breakX - jointX) * 0.3} ly={0} rotate={-90} dyLabel={-fs * 0.5} />
@@ -505,16 +503,9 @@ function CrossSectionSVG({ d }) {
   );
 }
 
-// ---------- Formatting ----------
-function fmt(mm, unit) {
-  if (!Number.isFinite(mm)) return '—';
-  return unit === 'mm' ? round(mm, 1).toFixed(1) : round(mm / MM_PER_IN, 2).toFixed(2);
-}
-
 // ---------- App ----------
 function App() {
   const [unit, setUnit] = useState('mm');
-  // Values held in the CURRENTLY displayed unit.
   const [vals, setVals] = useState(DEFAULTS_MM);
 
   const toMm = (v) => (unit === 'mm' ? v : v * MM_PER_IN);
@@ -536,43 +527,45 @@ function App() {
     setUnit(next);
   };
 
-  // Compute everything in mm.
+  // Everything computed in mm.
   const pageW = toMm(vals.pageWidth) || 0;
   const pageH = toMm(vals.pageHeight) || 0;
   const blockT = toMm(vals.blockThickness) || 0;
   const boardT = toMm(vals.boardThickness) || 0;
-  const coverMargin = toMm(vals.coverMargin) || 0;
-  const fabricMargin = toMm(vals.fabricMargin) || 0;
+  const coverMatT = toMm(vals.coverMaterial) || 0;
+  const overhang = toMm(vals.overhang) || 0;
+  const turnIn = toMm(vals.turnIn) || 0;
 
-  const boardW = pageW - 0.5 * blockT + coverMargin;
-  const boardH = pageH + 2 * coverMargin;
+  // Corrected layflat/case model (verified against bookbinding references).
+  const gutter = 2 * boardT + coverMatT;            // hinge / French groove
+  const boardW = pageW - gutter + overhang;         // board set back by the hinge, overhang at fore-edge
+  const boardH = pageH + 2 * overhang;
   const spineW = blockT + 2 * boardT;
-  const gutter = blockT / 2 + boardT;
-  const fabricW = 2 * boardW + spineW + 2 * gutter + 2 * fabricMargin;
-  const fabricH = boardH + 2 * fabricMargin;
+  const fabricW = 2 * boardW + spineW + 2 * gutter + 2 * turnIn;
+  const fabricH = boardH + 2 * turnIn;
 
-  const d = { pageW, pageH, blockT, boardT, coverMargin, fabricMargin,
+  const d = { pageW, pageH, blockT, boardT, overhang, fabricMargin: turnIn,
     boardW, boardH, spineW, gutter, fabricW, fabricH, unit };
 
   const results = [
-    { k: 'Cover board', v: `${fmt(boardW, unit)} × ${fmt(boardH, unit)}`, c: '--c-board' },
+    { k: 'Cover board (×2)', v: `${fmt(boardW, unit)} × ${fmt(boardH, unit)}`, c: '--c-board' },
     { k: 'Spine board (s)', v: fmt(spineW, unit), c: '--c-spine' },
     { k: 'Hinge gutter (g)', v: fmt(gutter, unit), c: '--c-spine' },
   ];
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-6 sm:py-9">
       <div className="max-w-[1240px] mx-auto">
 
         {/* Header */}
-        <header className="rise flex flex-wrap items-end justify-between gap-5 mb-6" style={{ animationDelay: '0ms' }}>
+        <header className="rise flex flex-wrap items-end justify-between gap-5 mb-7" style={{ animationDelay: '0ms' }}>
           <div>
             <div className="eyebrow mb-2">Bookbinding · Cutting Plan</div>
-            <h1 className="font-display font-semibold leading-[0.95] tracking-[-0.03em] text-[clamp(2.1rem,5vw,3.4rem)]"
+            <h1 className="font-display font-black leading-[0.95] tracking-[-0.02em] text-[clamp(2.2rem,5vw,3.5rem)]"
                 style={{ color: 'var(--ink)' }}>
               Coverboard&nbsp;Calculator
             </h1>
-            <p className="mt-2 max-w-xl text-[15px]" style={{ color: 'var(--ink-soft)' }}>
+            <p className="mt-2 max-w-xl text-[15px] font-semibold" style={{ color: 'var(--ink-soft)' }}>
               Enter your page block and materials — see the cover boards, spine, and cloth
               laid out to scale, ready to measure and cut.
             </p>
@@ -587,20 +580,20 @@ function App() {
 
         {/* Diagrams */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-5 mb-4 sm:mb-5">
-          <section className="rise card-float lg:col-span-3 p-4 sm:p-5 flex flex-col" style={{ animationDelay: '80ms' }}>
+          <section className="rise glass-float lg:col-span-3 p-4 sm:p-5 flex flex-col" style={{ animationDelay: '80ms' }}>
             <div className="flex items-center justify-between mb-3">
               <span className="card-title">Flat Layout · live</span>
-              <span className="font-mono text-[11px]" style={{ color: 'var(--ink-faint)' }}>outer face, unfolded</span>
+              <span className="text-[11px] font-semibold" style={{ color: 'var(--ink-faint)' }}>outer face, unfolded</span>
             </div>
             <div className="cutmat flex-1 p-3 min-h-[280px] sm:min-h-[340px]">
               <FlatLayoutSVG d={d} />
             </div>
           </section>
 
-          <section className="rise card-float lg:col-span-2 p-4 sm:p-5 flex flex-col" style={{ animationDelay: '150ms' }}>
+          <section className="rise glass-float lg:col-span-2 p-4 sm:p-5 flex flex-col" style={{ animationDelay: '150ms' }}>
             <div className="flex items-center justify-between mb-3">
               <span className="card-title">Cross-Section · live</span>
-              <span className="font-mono text-[11px]" style={{ color: 'var(--ink-faint)' }}>spine detail</span>
+              <span className="text-[11px] font-semibold" style={{ color: 'var(--ink-faint)' }}>spine detail</span>
             </div>
             <div className="cutmat flex-1 p-3 min-h-[220px] sm:min-h-[340px]">
               <CrossSectionSVG d={d} />
@@ -610,7 +603,7 @@ function App() {
 
         {/* Controls + results */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
-          <section className="rise card p-5" style={{ animationDelay: '210ms' }}>
+          <section className="rise glass p-5" style={{ animationDelay: '210ms' }}>
             <div className="card-title mb-4">Page Block</div>
             <div className="space-y-3.5">
               <InputField id="pageWidth" label="Width" value={vals.pageWidth} unit={unit} colorVar="--c-page" onChange={onChange} />
@@ -619,46 +612,47 @@ function App() {
             </div>
           </section>
 
-          <section className="rise card p-5" style={{ animationDelay: '270ms' }}>
+          <section className="rise glass p-5" style={{ animationDelay: '270ms' }}>
             <div className="card-title mb-4">Materials</div>
             <div className="space-y-3.5">
               <InputField id="boardThickness" label="Board thickness" value={vals.boardThickness} unit={unit} colorVar="--c-board" onChange={onChange} />
-              <InputField id="coverMargin" label="Cover square" value={vals.coverMargin} unit={unit} colorVar="--c-fabric" onChange={onChange} />
-              <InputField id="fabricMargin" label="Fabric turn-in" value={vals.fabricMargin} unit={unit} colorVar="--c-fabric" onChange={onChange} />
+              <InputField id="coverMaterial" label="Cover material" value={vals.coverMaterial} unit={unit} colorVar="--c-fabric" onChange={onChange} />
+              <InputField id="overhang" label="Overhang (square)" value={vals.overhang} unit={unit} colorVar="--c-board" onChange={onChange} />
+              <InputField id="turnIn" label="Turn-in" value={vals.turnIn} unit={unit} colorVar="--c-fabric" onChange={onChange} />
             </div>
           </section>
 
-          <section className="rise card p-5" style={{ animationDelay: '330ms' }}>
+          <section className="rise glass p-5" style={{ animationDelay: '330ms' }}>
             <div className="card-title mb-4">Cut List</div>
             <div>
               {results.map((r) => (
                 <div className="res-row" key={r.k}>
                   <span className="res-key"><span className="swatch" style={{ background: `var(${r.c})` }} />{r.k}</span>
-                  <span className="res-val">{r.v} <span style={{ color: 'var(--ink-faint)', fontWeight: 400 }}>{unit}</span></span>
+                  <span className="res-val num">{r.v} <span style={{ color: 'var(--ink-faint)', fontWeight: 600 }}>{unit}</span></span>
                 </div>
               ))}
               <div className="res-row res-total">
                 <span className="res-key"><span className="swatch" style={{ background: 'var(--c-fabric)' }} />Total cloth</span>
-                <span className="res-val">{fmt(fabricW, unit)} × {fmt(fabricH, unit)} <span style={{ color: 'var(--ink-faint)', fontWeight: 400 }}>{unit}</span></span>
+                <span className="res-val num">{fmt(fabricW, unit)} × {fmt(fabricH, unit)} <span style={{ color: 'var(--ink-faint)', fontWeight: 600 }}>{unit}</span></span>
               </div>
             </div>
           </section>
 
-          <section className="rise card p-5" style={{ animationDelay: '390ms' }}>
+          <section className="rise glass p-5" style={{ animationDelay: '390ms' }}>
             <div className="card-title mb-4">Formulas</div>
             <div className="formula">
-              <div><b>board&nbsp;w</b> = page&nbsp;w − ½·spine + square</div>
-              <div><b>board&nbsp;h</b> = page&nbsp;h + 2·square</div>
+              <div><b>gutter&nbsp;g</b> = 2·board + cover&nbsp;mat</div>
+              <div><b>board&nbsp;w</b> = page&nbsp;w − g + overhang</div>
+              <div><b>board&nbsp;h</b> = page&nbsp;h + 2·overhang</div>
               <div><b>spine</b> = spine + 2·board</div>
-              <div><b>gutter</b> = spine⁄2 + board</div>
-              <div><b>cloth&nbsp;w</b> = 2·board&nbsp;w + spine + 2·gutter + 2·turn-in</div>
+              <div><b>cloth&nbsp;w</b> = 2·board&nbsp;w + spine + 2·g + 2·turn-in</div>
               <div><b>cloth&nbsp;h</b> = board&nbsp;h + 2·turn-in</div>
             </div>
           </section>
         </div>
 
-        <footer className="mt-7 text-center font-mono text-[11px]" style={{ color: 'var(--ink-faint)' }}>
-          Layflat hardcover model · all dimensions live · measure twice, cut once
+        <footer className="mt-8 text-center text-[11px] font-semibold" style={{ color: 'var(--ink-faint)' }}>
+          Case / layflat hardcover model · all dimensions live · measure twice, cut once
         </footer>
       </div>
     </div>
